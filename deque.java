@@ -17,8 +17,6 @@
                 if(deque.size() == m)
                 {
                  if(hs.size() > max )max = hs.size();
-                 System.out.println(deque);
-                 System.out.println(hs);
                  int poped_el = deque.remove();
                 if(!hs.contains(poped_el))hs.remove(poped_el);
                 }
