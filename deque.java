@@ -1,32 +1,28 @@
-    import java.util.*;
-    public class test {
-        public static void main(String[] args) {
-            Scanner in = new Scanner(System.in);
-            Deque <Integer>deque = new ArrayDeque<Integer>();
-            HashSet <Integer> hs = new HashSet<>();
+import java.util.*;
 
-            int max = 0;
-            int n = in.nextInt();
-            int m = in.nextInt();
+public class test {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        Deque<Integer> deque = new ArrayDeque<>();
+        HashSet<Integer> set = new HashSet<>();
+        
+        int n = in.nextInt();
+        int m = in.nextInt();
+        int max = Integer.MIN_VALUE;
 
-            for (int i = 0; i < n; i++) 
-            {
-                int num = in.nextInt();
-                deque.add(num);
-                hs.add(num);
-                if(deque.size() == m)
-                {
-                 if(hs.size() > max )max = hs.size();
-                 int poped_el = deque.remove();
-                if(!hs.contains(poped_el))hs.remove(poped_el);
-                }
-                if (max == m)
-                break;
+        for (int i = 0; i < n; i++) {
+            int input = in.nextInt();
+            
+            deque.add(input);
+            set.add(input);
+            
+            if (deque.size() == m) {
+                if (set.size() > max) max = set.size();
+                int first = deque.remove();
+                if (!deque.contains(first)) set.remove(first);
             }
-            System.out.println(max);
-}
+        }
+        
+        System.out.println(max);
     }
-
-
-
-
+}
